@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("csLonicera")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a35cff8b963e279e113a3c847fae520fb72e04cb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c6ceeeb5ff84812b880e3505bb3277fdb002b37")]
 [assembly: System.Reflection.AssemblyProductAttribute("csLonicera")]
 [assembly: System.Reflection.AssemblyTitleAttribute("csLonicera")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
