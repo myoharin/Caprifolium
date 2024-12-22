@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("A brief description of your library.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49b28da638debcd65be2d64dd0d3e9f535c76abe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af199df5dcc11a14a36d0b65ea3a51557b06bf7e")]
 [assembly: System.Reflection.AssemblyProductAttribute("csLonicera")]
 [assembly: System.Reflection.AssemblyTitleAttribute("csLonicera")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
