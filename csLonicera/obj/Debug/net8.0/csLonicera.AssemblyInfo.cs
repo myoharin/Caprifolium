@@ -10,10 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("csLonicera")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("MyoHarin")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("Lonicera is a class used to storing inter-linked nodes defined by their relations" +
+    "hips. Written for SineVita to track relationships between notes in a chord.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49b28da638debcd65be2d64dd0d3e9f535c76abe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e5e9d73bc8f66cb1e72588834e75e2e15e454676")]
 [assembly: System.Reflection.AssemblyProductAttribute("csLonicera")]
 [assembly: System.Reflection.AssemblyTitleAttribute("csLonicera")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

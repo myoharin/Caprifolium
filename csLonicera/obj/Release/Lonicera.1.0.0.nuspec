@@ -6,13 +6,13 @@
     <authors>MyoHarin</authors>
     <projectUrl>https://github.com/MyoHarin/Lonicera</projectUrl>
     <description>Lonicera is a class used to storing inter-linked nodes defined by their relationships. Written for SineVita to track relationships between notes in a chord.</description>
-    <repository type="git" commit="3be20295976609b49b22e094dc67431fd2500e64" />
+    <repository type="git" commit="e5e9d73bc8f66cb1e72588834e75e2e15e454676" />
     <dependencies>
-      <group targetFramework="net5.0" />
+      <group targetFramework="net8.0" />
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\bin\Release\net5.0\csLonicera.runtimeconfig.json" target="lib\net5.0\csLonicera.runtimeconfig.json" />
-    <file src="C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\bin\Release\net5.0\csLonicera.dll" target="lib\net5.0\csLonicera.dll" />
+    <file src="C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\bin\Release\net8.0\csLonicera.runtimeconfig.json" target="lib\net8.0\csLonicera.runtimeconfig.json" />
+    <file src="C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\bin\Release\net8.0\csLonicera.dll" target="lib\net8.0\csLonicera.dll" />
   </files>
 </package>
