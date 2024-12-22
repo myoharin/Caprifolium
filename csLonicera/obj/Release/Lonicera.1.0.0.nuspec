@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Lonicera</id>
+    <version>1.0.0</version>
+    <authors>MyoHarin</authors>
+    <projectUrl>https://github.com/MyoHarin/Lonicera</projectUrl>
+    <description>Lonicera is a class used to storing inter-linked nodes defined by their relationships. Written for SineVita to track relationships between notes in a chord.</description>
+    <repository type="git" commit="3be20295976609b49b22e094dc67431fd2500e64" />
+    <dependencies>
+      <group targetFramework="net5.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\bin\Release\net5.0\csLonicera.runtimeconfig.json" target="lib\net5.0\csLonicera.runtimeconfig.json" />
+    <file src="C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\bin\Release\net5.0\csLonicera.dll" target="lib\net5.0\csLonicera.dll" />
+  </files>
+</package>

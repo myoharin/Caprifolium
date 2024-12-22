@@ -2,12 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>YourLibraryName</PackageId>
+    <PackageId>Lonicera</PackageId>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework> <!-- or netcoreapp3.1, net6.0, etc. -->
+    <LangVersion>10.0</LangVersion> <!-- Set this to 8.0 or higher -->
     <Version>1.0.0</Version>
-    <Authors>Your Name</Authors>
-    <Description>A brief description of your library.</Description>
+    <Authors>MyoHarin</Authors>
+    <Description>Lonicera is a class used to storing inter-linked nodes defined by their relationships. Written for SineVita to track relationships between notes in a chord.</Description>
     <PackageLicense>MIT</PackageLicense>
-    <PackageProjectUrl>https://github.com/yourusername/yourrepository</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/MyoHarin/Lonicera</PackageProjectUrl>
   </PropertyGroup>
 
 </Project>

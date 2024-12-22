@@ -1,4 +1,6 @@
 using System.Dynamic;
+using System.Collections.Generic;
+using System;
 
 namespace SineVita.Lonicera {
 
@@ -8,9 +10,9 @@ namespace SineVita.Lonicera {
         public Func<Node, Node, Link>? Growth { get; set; } // (n0, n1) - n0 < n1
         public bool GrowthSynced = false;
 
-        public int NodeCount { get {return _nodes.Count();} }
-        public int LinkCount { get {return _links.Count();} }
-        public Node? RootNode { get {
+        public int NodeCount { get {return _nodes.Count;} }
+        public int LinkCount { get {return _links.Count;} }
+        public Node RootNode { get {
             if (NodeCount > 0) {return _nodes[0];} 
             else {return default(Node);}}}   
         public IReadOnlyList<Node> Nodes => _nodes.AsReadOnly();

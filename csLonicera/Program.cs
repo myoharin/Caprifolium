@@ -1,4 +1,6 @@
 ﻿using SineVita.Lonicera;
+using System;
+using System.Collections.Generic;
 
 void TestCode() {
     Func<int, int, int> multiply = (x, y) => x * y;
@@ -7,7 +9,7 @@ void TestCode() {
     Lonicera<int, int> loniTest = new Lonicera<int, int>(multiply);
     void print(){
     int index = 0;
-    Console.WriteLine(loniTest.Links.Count());
+    Console.WriteLine(loniTest.Links.Count);
     for (int i = 1; i < loniTest.NodeCount; i++) {
         for (int j = 0; j < i; j++) {
             Console.Write($"| {loniTest.Links[index]} ");
