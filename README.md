@@ -188,7 +188,7 @@ print() // assume method exist for Lonicera<int, int>
 
 | | | | | | | | | | |
 |-|-|-|-|-|-|-|-|-|-|
-| 1 |
+| 0 |
 | 0 | 2 |
 | 0 | 3 | 6 |
 | 0 | 4 | 8 | 12 |
