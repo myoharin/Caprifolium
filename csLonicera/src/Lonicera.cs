@@ -1,27 +1,26 @@
-using System.Dynamic;
 using System.Collections.Generic;
 using System;
-
+#nullable enable
 namespace SineVita.Lonicera {
 
     public class Lonicera<Node, Link> {
-        protected List<Node> _nodes;
-        protected List<Link> _links;
-        public Func<Node, Node, Link>? Growth { get; set; } // (n0, n1) - n0 < n1
+        protected List<Node?> _nodes;
+        protected List<Link?> _links;
+        public Func<Node?, Node?, Link?>? Growth { get; set; } // (n0, n1) - n0 < n1
         public bool GrowthSynced = false;
 
         public int NodeCount { get {return _nodes.Count;} }
         public int LinkCount { get {return _links.Count;} }
-        public Node RootNode { get {
+        public Node? RootNode { get {
             if (NodeCount > 0) {return _nodes[0];} 
             else {return default(Node);}}}   
-        public IReadOnlyList<Node> Nodes => _nodes.AsReadOnly();
-        public IReadOnlyList<Link> Links => _links.AsReadOnly();
+        public IReadOnlyList<Node?> Nodes => _nodes.AsReadOnly();
+        public IReadOnlyList<Link?> Links => _links.AsReadOnly();
 
-        public Lonicera(Func<Node, Node, Link>? growth = null, bool grow = false, List<Node>? nodes = null, List<Link>? links = null) {
+        public Lonicera(Func<Node?, Node?, Link?>? growth = null, bool grow = false, List<Node?>? nodes = null, List<Link?>? links = null) {
             Growth = growth;
-            if (nodes != null) {_nodes = nodes;} else {_nodes = new List<Node>();}
-            if (links != null) {_links = links;} else {_links = new List<Link>();}
+            if (nodes != null) {_nodes = nodes;} else {_nodes = new List<Node?>();}
+            if (links != null) {_links = links;} else {_links = new List<Link?>();}
 
             for (int i = 0; i < CalculateVineCount(); i++) {
                 _links[i] = default(Link);
@@ -30,7 +29,7 @@ namespace SineVita.Lonicera {
         }
 
         public int CalculateVineCount() {return (int)Math.Floor(NodeCount * (NodeCount + 1) * 0.5f);}       
-        public Link GetValue(int n0, int n1) {
+        public Link? GetValue(int n0, int n1) {
             if (n0 >= NodeCount || n1 >= NodeCount) {
                 throw new ArgumentOutOfRangeException("");
             }
@@ -58,7 +57,7 @@ namespace SineVita.Lonicera {
             else {rowPivot = NodesToLinkIndex(0, index-1);}
             
             // add rows
-            Link cacheLink = default(Link);
+            Link? cacheLink = default(Link);
             for (int i = 0; i < index; i++) {
                 if (growNew && Growth != null) {cacheLink = Growth(_nodes[i], _nodes[index]);}
                 _links.Insert(rowPivot+i, cacheLink);
@@ -112,11 +111,11 @@ namespace SineVita.Lonicera {
         }
 
 
-        public void Update_nodes(Func<Node, Node> func) {
+        public void Update_nodes(Func<Node?, Node?> func) {
             GrowthSynced = false;
             for (int i = 0; i < NodeCount; i++) {_nodes[i] = func(_nodes[i]);}
         }
-        public void Update_links(Func<Link, Link> func) {
+        public void Update_links(Func<Link?, Link?> func) {
             GrowthSynced = false;
             for (int i = 0; i < LinkCount; i++) {_links[i] = func(_links[i]);}
         }
