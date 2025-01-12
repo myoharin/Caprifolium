@@ -52,6 +52,9 @@ namespace SineVita.Lonicera {
             _nodes.Add(newNode);
         }
         public void Insert(int index, Node newNode, bool growNew = true) {
+            if (index < 0 || index > NodeCount) {
+                throw new ArgumentOutOfRangeException(nameof(index), $"Index {index} must be within {0}to {NodeCount}.");
+            }
             _nodes.Insert(index, newNode);
             int rowPivot;
             if (index == 0) {rowPivot = 0;} 
@@ -65,7 +68,9 @@ namespace SineVita.Lonicera {
             }
 
             // add collumns
-            for (int i = index+1; i < NodeCount+1; i++) {
+            for (int i = index+1; i < NodeCount; i++) {
+                Console.WriteLine($"{i} | {index}");
+                Console.WriteLine($"{NodesToLinkIndex(index, i)} {LinkCount}");
                 if (growNew && Growth != null) {cacheLink = Growth(_nodes[index], _nodes[i]);}
                 _links.Insert(NodesToLinkIndex(index, i), cacheLink);
             }

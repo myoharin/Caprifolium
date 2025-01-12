@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Lonicera is a class used to storing inter-linked nodes defined by their relations" +
     "hips. Written for SineVita to track relationships between notes in a chord.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7bb2dcc6e53add0cb553b3a726531f56bdc570e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+014d4d29384087717b1412e5b2b187b48a08aa3d")]
 [assembly: System.Reflection.AssemblyProductAttribute("csLonicera")]
 [assembly: System.Reflection.AssemblyTitleAttribute("csLonicera")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

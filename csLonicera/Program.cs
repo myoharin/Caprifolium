@@ -53,6 +53,7 @@ void TestCode() {
     print();
     loniTest.Remove(3);
     print();
+    loniTest.Insert(3,3);
 
 
     List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -62,5 +63,6 @@ void TestCode() {
     numbers.RemoveRange(3, 3);
     Console.WriteLine("After RemoveRange:");
     PrintList(numbers);
+    print();
 }
 TestCode();
