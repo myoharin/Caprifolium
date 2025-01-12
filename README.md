@@ -21,6 +21,7 @@ Currently Supports Languages:
 ```
 dotnet add package csLonicera --version 1.0.0
 ```
+Or better yet, download the .dll file in ```csLonicera\bin\Debug\net8.0\csLonicera.dll``` and add it to your project! This project will be maintained for git submodules purposes.
 
 ## Type Parameters
 
@@ -157,6 +158,52 @@ Applies growth logic to update the links based on the current nodes.
 ### `void Clear()`
 
 Clears all nodes and links in the structure.
+
+### `void MutateNode(int index, Func<Node, Node> func, bool growLinkedLinks = true)`
+
+Mutates a node at the specified index using a provided function and optionally grows linked links.
+
+#### Parameters
+
+- **index**: The index of the node to mutate.
+- **func**: The function to apply to the node.
+- **growLinkedLinks**: Indicates whether to grow linked links after mutation.
+
+#### Returns
+
+- `true` if linked links were grown; otherwise, `false`.
+
+### `void MutateNode(int index, Node newNode, bool growLinkedLinks = true)`
+
+Mutates a node at the specified index with a new node and optionally grows linked links.
+
+#### Parameters
+
+- **index**: The index of the node to mutate.
+- **newNode**: The new node to replace the existing node.
+- **growLinkedLinks**: Indicates whether to grow linked links after mutation.
+
+#### Returns
+
+- `true` if linked links were grown; otherwise, `false`.
+
+### `void MutateLink(int index, Func<Link, Link> func)`
+
+Mutates a link at the specified index using a provided function.
+
+#### Parameters
+
+- **index**: The index of the link to mutate.
+- **func**: The function to apply to the link.
+
+### `void MutateLink(int index, Link newLink)`
+
+Mutates a link at the specified index with a new link.
+
+#### Parameters
+
+- **index**: The index of the link to mutate.
+- **newLink**: The new link to replace the existing link.
 
 ## Static Methods
 

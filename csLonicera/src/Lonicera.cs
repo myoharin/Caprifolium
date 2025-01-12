@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using System.Runtime.Versioning;
 #nullable enable
 namespace SineVita.Lonicera {
 
@@ -110,12 +111,48 @@ namespace SineVita.Lonicera {
             }
         }
 
-
-        public void Update_nodes(Func<Node?, Node?> func) {
+        public bool MutateNode(int index, Func<Node?, Node?> func, bool growLinkedLinks = false) {
+            _nodes[index] = func(_nodes[index]);
+            if (growLinkedLinks && Growth != null) {
+                int updateIndex;
+                for (int i = 0; i < NodeCount; i++) {
+                    if (i != index) {
+                        updateIndex = NodesToLinkIndex(index, i);
+                        _links[updateIndex] = Growth(_nodes[Math.Min(i,index)], _nodes[Math.Max(i,index)]);
+                    }
+                }
+                return true;
+            }
+            else {GrowthSynced = false; return false;}
+        }
+        public bool MutateNode(int index, Node? newNode, bool growLinkedLinks = false) {
+            _nodes[index] = newNode;
+            if (growLinkedLinks && Growth != null) {
+            int updateIndex;
+                for (int i = 0; i < NodeCount; i++) {
+                    if (i != index) {
+                        updateIndex = NodesToLinkIndex(index, i);
+                        _links[updateIndex] = Growth(_nodes[Math.Min(i,index)], _nodes[Math.Max(i,index)]);
+                    }
+                }
+                return true;
+            }
+            else {GrowthSynced = false; return false;}
+        }
+        public void MutateLink(int index, Func<Link?, Link?> func) {
+            _links[index] = func(_links[index]);
+            GrowthSynced = false;
+        }
+        public void MutateLink(int index, Link? newLink) {
+            _links[index] = newLink;
+            GrowthSynced = false;
+        }
+        
+        public void UpdateNodes(Func<Node?, Node?> func) {
             GrowthSynced = false;
             for (int i = 0; i < NodeCount; i++) {_nodes[i] = func(_nodes[i]);}
         }
-        public void Update_links(Func<Link?, Link?> func) {
+        public void UpdateLinks(Func<Link?, Link?> func) {
             GrowthSynced = false;
             for (int i = 0; i < LinkCount; i++) {_links[i] = func(_links[i]);}
         }
