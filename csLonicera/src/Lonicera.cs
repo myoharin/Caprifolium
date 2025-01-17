@@ -47,8 +47,6 @@ namespace SineVita.Lonicera {
                     _links.Add(default(Link));
                 }
             }
-
-            
             _nodes.Add(newNode);
         }
         public void Insert(int index, Node newNode, bool growNew = true) {
@@ -58,6 +56,7 @@ namespace SineVita.Lonicera {
             _nodes.Insert(index, newNode);
             int rowPivot;
             if (index == 0) {rowPivot = 0;} 
+            else if (index == 1) {rowPivot = 0;}
             else {rowPivot = NodesToLinkIndex(0, index-1);}
             
             // add rows

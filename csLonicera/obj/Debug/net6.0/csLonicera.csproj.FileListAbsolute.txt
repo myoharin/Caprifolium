@@ -1,0 +1,15 @@
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\bin\Debug\net6.0\csLonicera.exe
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\bin\Debug\net6.0\csLonicera.deps.json
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\bin\Debug\net6.0\csLonicera.runtimeconfig.json
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\bin\Debug\net6.0\csLonicera.dll
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\bin\Debug\net6.0\csLonicera.pdb
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\net6.0\csLonicera.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\net6.0\csLonicera.AssemblyInfoInputs.cache
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\net6.0\csLonicera.AssemblyInfo.cs
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\net6.0\csLonicera.csproj.CoreCompileInputs.cache
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\net6.0\csLonicera.sourcelink.json
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\net6.0\csLonicera.dll
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\net6.0\refint\csLonicera.dll
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\net6.0\csLonicera.pdb
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\net6.0\csLonicera.genruntimeconfig.cache
+C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\net6.0\ref\csLonicera.dll
