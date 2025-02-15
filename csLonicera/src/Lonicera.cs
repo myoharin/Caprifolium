@@ -186,5 +186,11 @@ namespace SineVita.Lonicera {
                 throw new ArgumentException("The two node index cannot be the same.");
             }
             return (int)Math.Floor(n1 * (n1 - 1) * 0.5f) + n0;}
+        public static Tuple<int, int> LinkToNodesIndex(int index) {
+            int n1 = (int)Math.Floor(Math.Sqrt(2 * index + 0.25) + 0.5);
+            int n0 = index - (int)Math.Floor(n1 * (n1 - 1) * 0.5f);
+            return new Tuple<int, int>(n0, n1);
+        }
+        
     }
 }
