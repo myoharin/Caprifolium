@@ -4,12 +4,14 @@ using System.Runtime.Versioning;
 #nullable enable
 namespace SineVita.Lonicera {
 
-    public class Lonicera<Node, Link> {
+    public class Lonicera<Node, Link>    {
         protected List<Node> _nodes;
         protected List<Link> _links;
         public Func<Node, Node, Link>? Growth { get; set; } // (n0, n1) - n0 < n1
-        public bool GrowthSynced = false;
+        private bool _growthSynced = false;
 
+        // * Derived Gets
+        public bool GrowthSynced { get { return _growthSynced; } }
         public int NodeCount { get {return _nodes.Count;} }
         public int LinkCount { get {return _links.Count;} }
         public Node RootNode { get {
@@ -32,11 +34,17 @@ namespace SineVita.Lonicera {
         public int CalculateVineCount() {return (int)Math.Floor(NodeCount * (NodeCount + 1) * 0.5f);}       
         public Link GetValue(int n0, int n1) {
             if (n0 >= NodeCount || n1 >= NodeCount) {
-                throw new ArgumentOutOfRangeException("");
+                throw new ArgumentOutOfRangeException(nameof(n0), $"Node indices {n0} or {n1} are out of range.");
             }
             return _links[NodesToLinkIndex(n0, n1)];
         }
-
+        public Link GetLink(int i1, int i2) {
+            return _links[NodesToLinkIndex(i1, i2)];
+        }
+        public Node this[int index] {
+            get => _nodes[index];
+        }
+        
         // * Node Insertion Function
         public void Add(Node newNode, bool growNew = true) {
             for (int i = 0; i < NodeCount; i++) {
@@ -125,7 +133,7 @@ namespace SineVita.Lonicera {
                 }
                 return true;
             }
-            else {GrowthSynced = false; return false;}
+            else {_growthSynced = false; return false;}
         }
         public bool MutateNode(int index, Node newNode, bool growLinkedLinks = false) {
             _nodes[index] = newNode;
@@ -139,29 +147,29 @@ namespace SineVita.Lonicera {
                 }
                 return true;
             }
-            else {GrowthSynced = false; return false;}
+            else {_growthSynced = false; return false;}
         }
         public void MutateLink(int index, Func<Link, Link> func) {
             _links[index] = func(_links[index]);
-            GrowthSynced = false;
+            _growthSynced = false;
         }
         public void MutateLink(int index, Link newLink) {
             _links[index] = newLink;
-            GrowthSynced = false;
+            _growthSynced = false;
         }
         
         public void UpdateNodes(Func<Node, Node> func) {
-            GrowthSynced = false;
+            _growthSynced = false;
             for (int i = 0; i < NodeCount; i++) {_nodes[i] = func(_nodes[i]);}
         }
         public void UpdateLinks(Func<Link, Link> func) {
-            GrowthSynced = false;
+            _growthSynced = false;
             for (int i = 0; i < LinkCount; i++) {_links[i] = func(_links[i]);}
         }
 
         public void Grow() {
             if (NodeCount <= 1 || Growth == null) {return;}
-            GrowthSynced = true;
+            _growthSynced = true;
             int index = 0;
             for (int i = 0; i < NodeCount; i++) {
                for (int j = i+1; j < NodeCount; j++) {
