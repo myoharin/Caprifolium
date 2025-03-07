@@ -1,4 +1,4 @@
-# SineVita.Lonicera
+# Caprifolium.Lonicera
 
 Lonicera is a data structure used to contain interlinked nodes, where every possible pair of nodes is ordered in a consistent list and interacts via a "Growth" lambda function. This is particularly useful when tracking the number of nodes in a relation web or the intervals between every note in a chord.
 
