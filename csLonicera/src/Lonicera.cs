@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System;
 using System.Runtime.Versioning;
+using System.Linq;
 #nullable enable
-namespace SineVita.Lonicera {
+namespace Caprifolium {
 
     public class Lonicera<Node, Link>    {
         protected List<Node> _nodes;
@@ -14,9 +15,7 @@ namespace SineVita.Lonicera {
         public bool GrowthSynced { get { return _growthSynced; } }
         public int NodeCount { get {return _nodes.Count;} }
         public int LinkCount { get {return _links.Count;} }
-        public Node RootNode { get {
-            if (NodeCount > 0) {return _nodes[0];} 
-            else {return default(Node);}}}   
+    
         public IReadOnlyList<Node> Nodes => _nodes.AsReadOnly();
         public IReadOnlyList<Link> Links => _links.AsReadOnly();
 
@@ -28,7 +27,7 @@ namespace SineVita.Lonicera {
             for (int i = 0; i < CalculateVineCount(); i++) {
                 _links[i] = default(Link);
             }
-            if (Growth != null && grow) {Grow();}
+            if (Growth != null && grow) {GrowAll();}
         }
 
         public int CalculateVineCount() {return (int)Math.Floor(NodeCount * (NodeCount + 1) * 0.5f);}       
@@ -41,10 +40,31 @@ namespace SineVita.Lonicera {
         public Link GetLink(int i1, int i2) {
             return _links[NodesToLinkIndex(i1, i2)];
         }
+        
+        public bool Contains(Node n) {
+            return _nodes.Contains(n);
+        }
+        public bool Contains(Link l) {
+            return _links.Contains(l);
+        }
+        public bool ContainsNode(Node n) {
+            return _nodes.Contains(n);
+        }
+        public bool ContainsLink(Link l) {
+            return _links.Contains(l);
+        }
+
+        // * Derived get sets
         public Node this[int index] {
             get => _nodes[index];
+            set => MutateNode(index, value);
         }
-        
+        public Node RootNode { 
+            get => _nodes[0];
+            set => MutateNode(0, value);
+        }   
+
+    
         // * Node Insertion Function
         public void Add(Node newNode, bool growNew = true) {
             for (int i = 0; i < NodeCount; i++) {
@@ -138,7 +158,7 @@ namespace SineVita.Lonicera {
         public bool MutateNode(int index, Node newNode, bool growLinkedLinks = false) {
             _nodes[index] = newNode;
             if (growLinkedLinks && Growth != null) {
-            int updateIndex;
+                int updateIndex;
                 for (int i = 0; i < NodeCount; i++) {
                     if (i != index) {
                         updateIndex = NodesToLinkIndex(index, i);
@@ -167,7 +187,25 @@ namespace SineVita.Lonicera {
             for (int i = 0; i < LinkCount; i++) {_links[i] = func(_links[i]);}
         }
 
-        public void Grow() {
+        // * Growth Function
+        public void GrowLink(int n0, int n1) {
+            if (Growth == null) {return;}
+            if (n0 >= NodeCount || n1 >= NodeCount) {
+                throw new ArgumentOutOfRangeException(nameof(n0), $"Node indices {n0} or {n1} are out of range.");
+            }
+            int linkIndex = NodesToLinkIndex(n0, n1);
+            _links[linkIndex] = Growth(_nodes[n0], _nodes[n1]);
+        }
+        public void GrowLink(int linkIndex) {
+            if (Growth == null) {return;}
+            if (linkIndex > LinkCount) {
+                throw new ArgumentOutOfRangeException(nameof(linkIndex), $"Link index {linkIndex} is out of range.");
+            }
+            var nodeIndices = LinkToNodesIndex(linkIndex);
+            _links[linkIndex] = Growth(_nodes[nodeIndices.Item1], _nodes[nodeIndices.Item2]);
+            
+        }
+        public void GrowAll() {
             if (NodeCount <= 1 || Growth == null) {return;}
             _growthSynced = true;
             int index = 0;
