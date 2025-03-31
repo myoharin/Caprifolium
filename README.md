@@ -1,9 +1,29 @@
-# Caprifolium.Lonicera
+# Caprifolium
 
-Lonicera is a data structure used to contain interlinked nodes, where every possible pair of nodes is ordered in a consistent list and interacts via a "Growth" lambda function. This is particularly useful when tracking the number of nodes in a relation web or the intervals between every note in a chord.
+Caprifolium is a set of monadic web graph data structures that organises classes and methods which affects each other.
 
 Currently Supports Languages:
-- C#
+- C# dotnet8.0
+
+Feel free to clone the project and compile this in dotne 6.0 or 7.0
+
+## Class Summary
+
+### Caprifolium.Loncera
+
+Caprifolium.Lonicera is a data structure used to contain interlinked nodes, where every possible pair of nodes is ordered in a consistent list and interacts via a commutative "Growth" lambda function. This is particularly useful when tracking the number of nodes in a relation web or the intervals between every note in a chord.
+
+### Caprifolium.Knautia
+
+Caprifolium.Knautia is the same as Lonicera. However, rather than a pair, it can order every triple, quadruple, quintuple...etc of nodes consistently, "Growth"" lambda function applies all the same.
+
+The Knautia class should be used for organising and throughly analysing inter-relation data where each relation is defined by 3 or subjects, such as TriadicAnalysis.
+
+Hence, Lonicera is an effective subclass of Knautia. It is however implemented as a seperate class to reduce cognative complexity and to improve performance.
+
+`--still in development--`
+
+# Caprifolium Lonicera
 
 | | | | | | | | | | |
 |-|-|-|-|-|-|-|-|-|-|

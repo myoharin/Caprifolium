@@ -1,0 +1,15 @@
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\bin\Debug\net8.0\Caprifolium.exe
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\bin\Debug\net8.0\Caprifolium.deps.json
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\bin\Debug\net8.0\Caprifolium.runtimeconfig.json
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\bin\Debug\net8.0\Caprifolium.dll
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\bin\Debug\net8.0\Caprifolium.pdb
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\obj\Debug\net8.0\Caprifolium.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\obj\Debug\net8.0\Caprifolium.AssemblyInfoInputs.cache
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\obj\Debug\net8.0\Caprifolium.AssemblyInfo.cs
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\obj\Debug\net8.0\Caprifolium.csproj.CoreCompileInputs.cache
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\obj\Debug\net8.0\Caprifolium.sourcelink.json
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\obj\Debug\net8.0\Caprifolium.dll
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\obj\Debug\net8.0\refint\Caprifolium.dll
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\obj\Debug\net8.0\Caprifolium.pdb
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\obj\Debug\net8.0\Caprifolium.genruntimeconfig.cache
+C:\Users\tomin\OneDrive\Documents\GitHub\Caprifolium\obj\Debug\net8.0\ref\Caprifolium.dll

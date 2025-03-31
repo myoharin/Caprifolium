@@ -1,6 +1,0 @@
-C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\netstandard2.0\csLonicera.csproj.AssemblyReference.cache
-C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\netstandard2.0\csLonicera.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\netstandard2.0\csLonicera.AssemblyInfoInputs.cache
-C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\netstandard2.0\csLonicera.AssemblyInfo.cs
-C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\netstandard2.0\csLonicera.csproj.CoreCompileInputs.cache
-C:\Users\tomin\OneDrive\Documents\GitHub\SineVita.Lonicera\csLonicera\obj\Debug\netstandard2.0\csLonicera.sourcelink.json
