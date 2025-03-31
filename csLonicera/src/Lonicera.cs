@@ -5,7 +5,7 @@ using System.Linq;
 #nullable enable
 namespace Caprifolium {
 
-    public class Lonicera<Node, Link>    {
+    public class Lonicera<Node, Link> : IList<Node> {
         protected List<Node> _nodes;
         protected List<Link> _links;
         public Func<Node, Node, Link>? Growth { get; set; } // (n0, n1) - n0 < n1
@@ -41,12 +41,6 @@ namespace Caprifolium {
             return _links[NodesToLinkIndex(i1, i2)];
         }
         
-        public bool Contains(Node n) {
-            return _nodes.Contains(n);
-        }
-        public bool Contains(Link l) {
-            return _links.Contains(l);
-        }
         public bool ContainsNode(Node n) {
             return _nodes.Contains(n);
         }
@@ -54,7 +48,7 @@ namespace Caprifolium {
             return _links.Contains(l);
         }
 
-        // * Derived get sets
+        // * Overrides
         public Node this[int index] {
             get => _nodes[index];
             set => MutateNode(index, value);
@@ -64,8 +58,44 @@ namespace Caprifolium {
             set => MutateNode(0, value);
         }   
 
-    
+        public int Count => _nodes.Count;
+        public bool IsReadOnly => false;
+
+        public IEnumerator<Node> GetEnumerator() {
+            return _nodes.GetEnumerator();
+        }
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
+            return _nodes.GetEnumerator();
+        }
+
+        public bool Contains(Node item) {
+            return _nodes.Contains(item);
+        }
+        public bool Contains(Link item) {
+            return _links.Contains(item);
+        }
+
+        public void CopyTo(Node[] array, int arrayIndex) {
+            _nodes.CopyTo(array, arrayIndex);
+        }
+        public void CopyTo(Link[] array, int arrayIndex) {
+            _links.CopyTo(array, arrayIndex);
+        }
+
+        public int IndexOf(Node item) {
+            return _nodes.IndexOf(item);
+        }
+        public int IndexOf(Link item) {
+            return _links.IndexOf(item);
+        }
+
+        
+        
+        
+        
         // * Node Insertion Function
+
+        public void Add(Node item) {Add(item, true);}
         public void Add(Node newNode, bool growNew = true) {
             for (int i = 0; i < NodeCount; i++) {
                 if (growNew && Growth != null) {
@@ -77,6 +107,7 @@ namespace Caprifolium {
             }
             _nodes.Add(newNode);
         }
+        public void Insert(int index, Node item) {Insert(index, item, true);}
         public void Insert(int index, Node newNode, bool growNew = true) {
             if (index < 0 || index > NodeCount) {
                 throw new ArgumentOutOfRangeException(nameof(index), $"Index {index} must be within {0}to {NodeCount}.");
@@ -100,11 +131,13 @@ namespace Caprifolium {
                 _links.Insert(NodesToLinkIndex(index, i), cacheLink);
             }
         }
+        public void AddRange(List<Node> collection) {AddRange(collection, true);}
         public void AddRange(List<Node> newNodeRange, bool growNew = true) {
             foreach (Node node in newNodeRange) {
                 Add(node, growNew);
             }
         }
+        public void InsertRange(int index, List<Node> collection) {InsertRange(index, collection, true);}
         public void InsertRange(int index, List<Node> newNodeRange, bool growNew = true) {
             foreach (Node node in newNodeRange) {
                 Insert(index, node, growNew);
