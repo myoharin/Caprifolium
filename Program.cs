@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-void TestCode() {
+void TestCode1() {
     Func<int, int, int> multiply = (x, y) => x * y;
     Func<int, int, Tuple<int,int>> combine = (x, y) => new Tuple<int, int>(x,y);
     Func<int, int> factorial = (n) => {
@@ -67,4 +67,21 @@ void TestCode() {
     PrintList(numbers);
     print();
 }
-TestCode();
+
+void TestCode2() {
+    var list = Knautia<int, int>.GetExhaustiveIndices(5,8);
+    var i = 0;
+    foreach (var line in list) {
+        var str = "";
+        foreach (var item in line) {
+            str += $"{item} ";
+        }
+        str = $"{i} | [{str}]";
+        Console.Out.WriteLine(str);
+        i++;
+    }
+}
+
+
+
+// TestCode2();

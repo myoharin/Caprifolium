@@ -211,11 +211,11 @@ namespace Caprifolium {
             _growthSynced = false;
         }
         
-        public void UpdateNodes(Func<Node, Node> func) {
+        public void UpdateAllNodes(Func<Node, Node> func) {
             _growthSynced = false;
             for (int i = 0; i < NodeCount; i++) {_nodes[i] = func(_nodes[i]);}
         }
-        public void UpdateLinks(Func<Link, Link> func) {
+        public void UpdateAllLinks(Func<Link, Link> func) {
             _growthSynced = false;
             for (int i = 0; i < LinkCount; i++) {_links[i] = func(_links[i]);}
         }

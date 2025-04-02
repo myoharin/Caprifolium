@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Caprifolium")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9bdaab662eb5c4723c34b8de5a60bfa4e0dd262")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85735c433048e22796e0b57051057c612bfb3c31")]
 [assembly: System.Reflection.AssemblyProductAttribute("Caprifolium")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Caprifolium")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
