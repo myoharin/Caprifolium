@@ -244,10 +244,10 @@ namespace Caprifolium {
             for (int i = 0; i < range; i++) {
                 rangeIndices.Add(i);
             }
-            return GetExhaustiveIndices(seedCount, rangeIndices, new List<int>(necessaryIndex));
+            return GetExhaustiveIndices(seedCount, rangeIndices, new List<int>(){necessaryIndex});
         }
         public static List<List<int>> GetExhaustiveIndices(int seedCount, List<int> rangeIndices, int necessaryIndex) {
-            return GetExhaustiveIndices(seedCount, rangeIndices, new List<int>(necessaryIndex));
+            return GetExhaustiveIndices(seedCount, rangeIndices, new List<int>(){necessaryIndex});
         }
         public static List<List<int>> GetExhaustiveIndices(int seedCount, int range, List<int> necessaryIndices) {
             List<int> rangeIndices = new();
@@ -286,14 +286,12 @@ namespace Caprifolium {
             int rangeSize = rangeIndices.Count;
 
             foreach(var combination in GetExhaustiveIndices(seedCount, rangeSize)) {
-                List<int> newLine = new();
-                var necessaryIndicesCopy = necessaryIndices;
-                foreach(int i in combination) {
-                    newLine.Add(rangeIndices[i]);
-                    necessaryIndicesCopy.Remove(rangeIndices[i]);
+                bool containsAll = true; // necessary indices
+                foreach (int index in necessaryIndices) {
+                    containsAll = containsAll && combination.Contains(index);
                 }
-                if (necessaryIndicesCopy.Count <= 0) {
-                    returnList.Add(new List<int>(newLine));
+                if (containsAll) {
+                    returnList.Add(new(combination));
                 }
             }
             return returnList;
@@ -349,23 +347,26 @@ namespace Caprifolium {
             if (index < 0 || index > Count) {throw new ArgumentOutOfRangeException($"Index {index} is out of range.");}
             _nodes.Insert(index, item);
 
-            // Get exhaustive range and add from ground up in links
-            var exhautiveIndices = GetExhaustiveIndices(SeedCount, _nodes.Count, index);
-            foreach (var nodeIndices in exhautiveIndices) {
-                int linkIndex = NodeToLinkIndex(nodeIndices);
+            // Get exhaustive range and add from ground up in links, only if there are enough seeds
+            if (_nodes.Count >= SeedCount) {
+                var exhautiveIndices = GetExhaustiveIndices(SeedCount, _nodes.Count, index);
+                foreach (var nodeIndices in exhautiveIndices) {
+                    int linkIndex = NodeToLinkIndex(nodeIndices);
 
-                var nodeArguments = new Node[SeedCount];
-                for (int i = 0; i < SeedCount; i++) {
-                    nodeArguments[i] = _nodes[nodeIndices[i]];
+                    var nodeArguments = new Node[SeedCount];
+                    for (int i = 0; i < SeedCount; i++) {
+                        nodeArguments[i] = _nodes[nodeIndices[i]];
+                    }
+                    if (_growth != null && grow) {
+                        _links.Insert(linkIndex, _growth(nodeArguments)); 
+                    }
+                    else {
+                        _links.Insert(linkIndex, default(Link)); 
+                    }
+                    
                 }
-                if (_growth != null && grow) {
-                   _links.Insert(linkIndex, _growth(nodeArguments)); 
-                }
-                else {
-                    _links.Insert(linkIndex, default(Link)); 
-                }
-                
             }
+            
         }
         public void AddRange(List<Node> collection) { AddRange(collection, true); }
         public void AddRange(List<Node> collection, bool grow = true) {

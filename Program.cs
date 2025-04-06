@@ -69,7 +69,7 @@ void TestCode1() {
 }
 
 void TestCode2() {
-    var list = Knautia<int, int>.GetExhaustiveIndices(5,8);
+    var list = Knautia<int, int>.GetExhaustiveIndices(5,8, 3);
     var i = 0;
     foreach (var line in list) {
         var str = "";
@@ -82,6 +82,28 @@ void TestCode2() {
     }
 }
 
+void TestCode3() {
+
+    string knautiaGrowth(int[] input) {
+        var str = "";
+        foreach (int i in input) {
+            str = $"{str} {i}";
+        }
+        return str;
+    }
+
+    var knautia = new Knautia<int, string>(4, knautiaGrowth);
+
+    for (int i = 0; i < 9; i++) {
+        knautia.Add(i, true);
+        Console.WriteLine($"Added {i}");
+        int a = 0;
+        foreach (string? str in knautia.Links) {
+            Console.WriteLine($"{a} | {str ?? "null"}");
+            a++;
+        }
+    }
+}
 
 
-// TestCode2();
+TestCode3();
