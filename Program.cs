@@ -95,14 +95,15 @@ void TestCode3() {
     var knautia = new Knautia<int, string>(4, knautiaGrowth);
 
     for (int i = 0; i < 9; i++) {
-        knautia.Add(i, true);
+        knautia.Insert(0, i, true);
         Console.WriteLine($"Added {i}");
-        int a = 0;
-        foreach (string? str in knautia.Links) {
-            Console.WriteLine($"{a} | {str ?? "null"}");
-            a++;
-        }
     }
+    int a = 0;
+    foreach (string? str in knautia.Links) {
+        Console.WriteLine($"{a} | {str ?? "null"}");
+        a++;
+    }
+    
 }
 
 
